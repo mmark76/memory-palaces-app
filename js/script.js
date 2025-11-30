@@ -660,55 +660,104 @@ function initExamplesUI() {
 
 document.addEventListener("DOMContentLoaded", initExamplesUI);
 
-const importInput = document.getElementById("palaceImport");
-if (importInput) {
+document.addEventListener("DOMContentLoaded", function () {
+  const importInput = document.getElementById("palaceImport");
+
+  if (!importInput) return;
+
   importInput.addEventListener("change", function (event) {
     const file = event.target.files && event.target.files[0];
     if (!file) return;
 
-    // Έλεγχος MIME
-    if (file.type !== "application/json") {
-      alert("Το αρχείο πρέπει να είναι JSON.");
+    // Έλεγχος επέκτασης
+    if (!file.name.endsWith(".json")) {
+      alert("Το αρχείο πρέπει να είναι .json");
       importInput.value = "";
       return;
+    }
+
+    // Προαιρετικός έλεγχος MIME (σε κάποιους browsers είναι κενό)
+    if (file.type && file.type !== "application/json") {
+      console.warn("MIME type δεν είναι 'application/json', συνεχίζω έλεγχο περιεχομένου.");
     }
 
     const reader = new FileReader();
     reader.onload = function (e) {
       try {
-        const data = JSON.parse(e.target.result);
+        const text = e.target.result;
+        const data = JSON.parse(text);
 
-        // ===== Έλεγχος δομής =====
-        if (
-          typeof data !== "object" ||
-          typeof data.name !== "string" ||
-          !Array.isArray(data.loci)
-        ) {
-          throw new Error("Άκυρη δομή JSON.");
+        // ===== Έλεγχος ρίζας: { palaces: [...], selectedIndex } =====
+        if (typeof data !== "object" || data === null) {
+          throw new Error("Η ρίζα του JSON πρέπει να είναι αντικείμενο.");
         }
 
-        // Έλεγχος κάθε locus
-        for (const loc of data.loci) {
-          if (
-            typeof loc !== "object" ||
-            typeof loc.locus !== "string" ||
-            typeof loc.association !== "string"
-          ) {
-            throw new Error("Άκυρη δομή loci.");
+        if (!Array.isArray(data.palaces)) {
+          throw new Error("Το πεδίο 'palaces' πρέπει να είναι πίνακας.");
+        }
+
+        const selectedIndex = data.selectedIndex;
+
+        // ===== Έλεγχος παλατιών =====
+        data.palaces.forEach((p, palaceIndex) => {
+          if (typeof p !== "object" || p === null) {
+            throw new Error(`Παλάτι #${palaceIndex}: δεν είναι έγκυρο αντικείμενο.`);
           }
-        }
 
-        // Αν όλα είναι έγκυρα → πρόσθεσέ το στη λίστα
-        palaces.push(data);
+          if (typeof p.name !== "string" || !p.name.trim()) {
+            throw new Error(`Παλάτι #${palaceIndex}: λείπει ή είναι άδειο το 'name'.`);
+          }
+
+          if (!Array.isArray(p.loci)) {
+            throw new Error(`Παλάτι '${p.name}': το 'loci' πρέπει να είναι πίνακας.`);
+          }
+
+          p.loci.forEach((loc, locIndex) => {
+            if (typeof loc !== "object" || loc === null) {
+              throw new Error(`Παλάτι '${p.name}', locus #${locIndex}: δεν είναι αντικείμενο.`);
+            }
+
+            if (typeof loc.locus !== "string") {
+              throw new Error(
+                `Παλάτι '${p.name}', locus #${locIndex}: λείπει ή δεν είναι string το 'locus'.`
+              );
+            }
+
+            if (typeof loc.association !== "string") {
+              throw new Error(
+                `Παλάτι '${p.name}', locus #${locIndex}: λείπει ή δεν είναι string το 'association'.`
+              );
+            }
+          });
+        });
+
+        // ===== Αν όλα είναι ΟΚ → αντικαθιστούμε τα τρέχοντα palaces =====
+        palaces = data.palaces;
         renderPalaces();
 
-        alert("Το memory palace εισήχθη επιτυχώς!");
+        if (
+          typeof selectedIndex === "number" &&
+          selectedIndex >= 0 &&
+          selectedIndex < palaces.length
+        ) {
+          selectPalace(selectedIndex);
+        } else if (palaces.length > 0) {
+          selectPalace(0);
+        }
+
+        alert("Τα Memory Palaces φορτώθηκαν επιτυχώς από το JSON αρχείο.");
 
       } catch (err) {
-        alert("Μη έγκυρο αρχείο JSON.\n" + err.message);
+        alert(
+          "Το αρχείο JSON δεν είναι στη μορφή που χρησιμοποιεί η εφαρμογή.\n\nΛεπτομέρεια: " +
+            err.message
+        );
+      } finally {
+        // Καθάρισμα για να μπορείς να ξαναδιαλέξεις το ίδιο αρχείο
+        importInput.value = "";
       }
     };
 
     reader.readAsText(file);
   });
-}
+});
