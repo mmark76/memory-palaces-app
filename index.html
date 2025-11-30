@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Memory Palaces Application</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="/style.css">
+  <title>Memory Palaces App</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
   <div class="container">
 
-    <!-- Top bar: image + title + instructions button -->
+    <!-- Επάνω μπάρα: εικόνα + τίτλος + κουμπί οδηγιών -->
     <div class="top-row">
       <div class="header-row">
         <img
-          src="image-memory-palace.png"
+          src="/assets/image-memory-palace.png"
           alt="Memory palace illustration"
           class="header-image"
         >
@@ -26,20 +27,75 @@
       </button>
     </div>
 
-    <!-- Instructions overlay -->
-    <div id="instructionsOverlay" class="overlay hidden" onclick="toggleHelp()"></div>
-    <div id="helpPanel" class="help-panel hidden" aria-hidden="true">
-      <div class="help-box">
-        <h2>How to use this app</h2>
-        <p>1. Create a new memory palace with a name that reminds you of a real or imaginary place.</p>
-        <p>2. Inside each palace, add loci (specific spots) and attach an association or small story to every locus.</p>
-        <p>3. Use the flashcards mode to practise: either see the locus and recall the association, or the reverse.</p>
-        <p>4. When you are happy with your palaces, click “Save my palaces in this browser” so they are stored locally.</p>
-        <p>5. You can upload your own picture for the header to match the current palace you are training.</p>
+    <!-- Palace list + save button -->
+    <div class="section">
+      <div class="palace-save-row">
+        <button type="button" onclick="savePalaces()">
+          Save my palaces in this browser
+        </button>
       </div>
+      <div id="palaceList" class="palace-list"></div>
     </div>
 
-    <!-- Upload custom image -->
+    <!-- Examples section -->
+    <section class="examples-section">
+      <h2>Example memory palaces</h2>
+
+      <!-- General explanation button -->
+      <button id="examplesInfoBtn" type="button" class="btn-secondary">
+        What are example memory palaces?
+      </button>
+
+      <div id="examplesInfo" class="examples-info hidden">
+        <p>
+          These examples show how different types of information fit into the same memory palace
+          (the same house with 10 loci). Each example uses the same places, but with different
+          things to remember: shopping, recipes, rivers, countries, history, geography, studies.
+          You can read the examples, copy the JSON, or use them as a template to build your own
+          memory palaces.
+        </p>
+      </div>
+
+      <!-- Buttons for each example -->
+      <div class="examples-buttons">
+        <button type="button" data-example="shopping">Shopping list</button>
+        <button type="button" data-example="recipe">Pasta recipe</button>
+        <button type="button" data-example="rivers">10 longest rivers</button>
+        <button type="button" data-example="populousCountries">Most populous countries</button>
+        <button type="button" data-example="largestCountries">Largest countries by area</button>
+        <button type="button" data-example="studies">Studies & exams</button>
+      </div>
+
+      <!-- Preview area for the selected example JSON -->
+      <div id="examplesOutput" class="examples-output">
+        <p class="examples-hint">
+          Select an example to preview its JSON memory palace.
+        </p>
+        <pre id="examplesJsonPreview" class="examples-json"></pre>
+      </div>
+    </section>
+
+    <!-- Instructions overlay + help panel -->
+    <div id="instructionsOverlay"></div>
+
+    <div id="helpPanel" class="help-box hidden">
+      <h2>Usage Instructions</h2>
+
+      <p><b>1. Creating a Palace:</b> Type a name and press "Create".</p>
+      <p><b>2. Selecting a Palace:</b> Click on a palace to open it.</p>
+      <p><b>3. Adding a Locus:</b> Fill in on the left the
+        <u>description of the locus (place)</u> and on the right what
+        <u>you want to remember</u>, then press "Add".</p>
+      <p><b>4. Viewing Loci:</b> Each row in the list has two columns:
+        on the left the locus, on the right the association/memory you have defined.</p>
+      <p><b>5. Note:</b> Your data is stored permanently in this browser
+        only if you click the button "Save my palaces in this browser".
+        Otherwise, if you close the page, the palaces are lost.</p>
+
+      <button type="button" onclick="toggleHelp()">Close</button>
+    </div>
+
+    <!-- Upload custom palace image -->
     <div class="section">
       <label for="palaceImageUpload" class="field-label">
         Upload your own memory palace image
@@ -50,36 +106,22 @@
     <!-- Create palace -->
     <div class="section">
       <label for="palaceName" class="field-label">
-        Create your own Memory Palace
+        or just create your own Memory Palace step-by-step
       </label>
       <div class="inline-form">
-        <input id="palaceName" type="text" placeholder="Palace name">
+        <input id="palaceName" placeholder="Palace name">
         <button type="button" onclick="createPalace()">Create</button>
       </div>
     </div>
 
-    <!-- List of palaces + save button -->
-    <div class="section">
-      <div class="section-header">
-        <h2>My Memory Palaces</h2>
-        <button type="button" onclick="savePalaces()">
-          Save my palaces in this browser
-        </button>
-      </div>
-      <ul id="palaceList" class="palace-list"></ul>
-    </div>
-
-    <!-- Selected palace details -->
+    <!-- Selected palace -->
     <div id="selectedPalace" class="section hidden">
       <h2 id="palaceTitle">Your Memory Palace</h2>
 
-      <label class="field-label" for="newLocusName">
-        Add locus and association
-      </label>
-      <div class="inline-form">
-        <input id="newLocusName" type="text" placeholder="Locus description (e.g. front door)">
-        <input id="newLocusAssociation" type="text" placeholder="Association / image / story">
-        <button type="button" onclick="addLocus()">Add locus</button>
+      <div class="locus-form">
+        <input id="locusInput" placeholder="Locus description">
+        <input id="associationInput" placeholder="What I want to remember">
+        <button type="button" onclick="addLocus()">Add</button>
       </div>
 
       <ol id="locusList" class="locus-list"></ol>
@@ -117,9 +159,12 @@
       </div>
     </div>
 
-  </div>
+  </div> <!-- /end of container -->
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
+
+  <footer>
+    <h4>© 2025 Markellos Markides. All rights reserved.</h4>
+  </footer>
 </body>
 </html>
-
