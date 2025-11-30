@@ -47,6 +47,9 @@ function createPalace() {
 
   // Αυτόματη επιλογή του νέου παλατιού
   selectPalace(palaces.length - 1);
+
+  // Αποθήκευση σε localStorage
+  savePalacesToStorage();
 }
 
 // Εμφάνιση λίστας παλατιών
@@ -119,6 +122,9 @@ function addLocus() {
   locusInput.value = "";
   associationInput.value = "";
   renderLoci();
+
+  // Αποθήκευση σε localStorage
+  savePalacesToStorage();
 }
 
 // Εμφάνιση loci
@@ -259,8 +265,66 @@ function prevFlashcard() {
   updateFlashcard();
 }
 
-// ===== Saving and loading palaces =====
+// =========================
+// Saving, loading & export
+// =========================
 
+// Αποθήκευση στο localStorage
+function savePalacesToStorage() {
+  try {
+    const data = {
+      palaces: palaces,
+      selectedIndex: palaces.indexOf(currentPalace)
+    };
+    const json = JSON.stringify(data);
+    localStorage.setItem(STORAGE_KEY, json);
+  } catch (err) {
+    console.error("Error saving palaces to localStorage:", err);
+  }
+}
+
+// Φόρτωση από localStorage
+function loadPalacesFromStorage() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+
+    // Τίποτα αποθηκευμένο ακόμη
+    if (!raw) {
+      palaces = [];
+      currentPalace = null;
+      renderPalaces();
+      return;
+    }
+
+    const data = JSON.parse(raw);
+
+    // Νέα μορφή: { palaces: [...], selectedIndex }
+    if (data && Array.isArray(data.palaces)) {
+      palaces = data.palaces;
+      renderPalaces();
+
+      const idx = data.selectedIndex;
+      if (typeof idx === "number" && idx >= 0 && idx < palaces.length) {
+        selectPalace(idx);
+      }
+    }
+    // Παλιά μορφή: απλά array
+    else if (Array.isArray(data)) {
+      palaces = data;
+      renderPalaces();
+      if (palaces.length > 0) {
+        selectPalace(0);
+      }
+    }
+  } catch (err) {
+    console.error("Error loading palaces from localStorage:", err);
+    palaces = [];
+    currentPalace = null;
+    renderPalaces();
+  }
+}
+
+// Εξαγωγή σε JSON αρχείο (download)
 function savePalaces() {
   try {
     const data = {
@@ -718,6 +782,9 @@ document.addEventListener("DOMContentLoaded", function () {
           selectPalace(0);
         }
 
+        // Αποθήκευση και στο localStorage
+        savePalacesToStorage();
+
         alert("Τα Memory Palaces φορτώθηκαν επιτυχώς από το JSON αρχείο.");
 
       } catch (err) {
@@ -734,4 +801,3 @@ document.addEventListener("DOMContentLoaded", function () {
     reader.readAsText(file);
   });
 });
-
