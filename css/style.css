@@ -133,6 +133,8 @@ button:hover {
     cursor: pointer;
     font-size: 14px;
     transition: 0.2s;
+    color: #0a3d62;   /* ΤΟ ΚΕΙΜΕΝΟ ΜΕ ΜΠΛΕ, ΝΑ ΦΑΙΝΕΤΑΙ */
+    font-weight: 500; /* προαιρετικό, τα κάνει λίγο πιο έντονα */
 }
 
 .palace-button:hover {
@@ -387,4 +389,5 @@ footer img {
   display: none;
 }
 */
+
 
