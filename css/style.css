@@ -106,7 +106,7 @@ li {
 /* ============
    MOBILE RESPONSIVE
    ============ */
-@media (max-width: 750px) {
+@media (max-width: 760px) {
     .pair-container {
         flex-direction: column;
     }
@@ -125,3 +125,4 @@ li {
         padding: 9px;
     }
 }
+
