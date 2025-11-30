@@ -165,3 +165,19 @@ li {
     padding: 10px 0;
 }
 
+#instructionsModal {
+    z-index: 1000; /* προστίθεται */
+}
+
+/* Μισοδιαφανές φόντο πίσω από το modal */
+#instructionsOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(3px);
+    z-index: 900;
+    display: none; /* θα εμφανίζεται από JS */
+}
