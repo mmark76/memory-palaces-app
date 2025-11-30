@@ -512,58 +512,59 @@ const examplePalaces = {
     ]
   },
 
-  studies: {
-    name: "Studies & Exams – Definitions, Formulas, Theories, Chapters",
-    loci: [
+{
+  "studies": {
+    "name": "Medicine – Anatomy, Physiology, Biochemistry, Microbiology, Histology",
+    "loci": [
       {
-        place: "Wooden entrance door",
-        image: "Huge definition page blocking the entrance",
-        note: "Definition 1: Main concept of the subject"
+        "place": "Wooden entrance door",
+        "image": "The entrance door is a giant anatomical liver that opens into two lobes with the portal triad as colored cables.",
+        "note": "Anatomy: Liver lobes & portal triad (portal vein, hepatic artery, bile duct)."
       },
       {
-        place: "Hallway",
-        image: "Flashcards with definitions spinning around you in the hallway",
-        note: "Definition 2: Second fundamental concept"
+        "place": "Hallway",
+        "image": "The hallway floor has turned into a huge pancreas in cross-section with the pancreatic duct spiraling along the corridor.",
+        "note": "Anatomy: Pancreas regions (head, neck, body, tail) & Wirsung duct."
       },
       {
-        place: "Living room - sofa",
-        image: "Giant numbers and symbols sitting on the sofa like formulas",
-        note: "Formula 1: Key formula to remember"
+        "place": "Living room - sofa",
+        "image": "Two giant lungs sit on the sofa blowing balloons labeled FEV1, FVC, and Tidal Volume.",
+        "note": "Physiology: Lung volumes and capacities."
       },
       {
-        place: "Dining room - table",
-        image: "Table covered with glowing equations connecting with lines",
-        note: "Formula 2: Second important equation"
+        "place": "Dining room - table",
+        "image": "The dining table is a giant nephron filtering food through a glowing glomerulus sieve.",
+        "note": "Physiology: Nephron filtration & GFR mechanisms."
       },
       {
-        place: "Kitchen - sink",
-        image: "Small scene of professors discussing above the sink",
-        note: "Theory 1: First core theoretical principle"
+        "place": "Kitchen - sink",
+        "image": "The sink faucet pours ammonia water that flows through pipes labeled Ornithine, Citrulline, and Arginine before producing solid white 'urea soap'.",
+        "note": "Biochemistry: Urea cycle steps."
       },
       {
-        place: "Kitchen - oven",
-        image: "Opening the oven reveals a mini TED-style lecture",
-        note: "Theory 2: Second theoretical idea"
+        "place": "Kitchen - oven",
+        "image": "Opening the oven reveals the Krebs cycle spinning like a glowing wheel with each intermediate appearing sequentially.",
+        "note": "Biochemistry: Krebs cycle intermediates & energy output."
       },
       {
-        place: "Balcony",
-        image: "Pages of chapters hanging on a rope on the balcony",
-        note: "Chapter 1: First chapter to study"
+        "place": "Balcony",
+        "image": "Clothes hang from a rope, some purple (Gram+) and some pink (Gram−), each with bacteria names like Staph, Strep, E.coli, Klebsiella.",
+        "note": "Microbiology: Gram-positive and Gram-negative classification."
       },
       {
-        place: "Bedroom",
-        image: "Bed turned into an open book full of highlights",
-        note: "Chapter 2: Next major chapter"
+        "place": "Bedroom",
+        "image": "The bed has transformed into a layered epithelium made of pillows shaped as squamous, cuboidal, and columnar cells.",
+        "note": "Histology: Epithelial tissue types."
       },
       {
-        place: "Bathroom",
-        image: "Bathtub turned into a flowchart of topics",
-        note: "Chapter 3: Additional chapter/section"
+        "place": "Bathroom",
+        "image": "The bathtub is filled with water divided into three colors representing endoderm (blue), mesoderm (red), and ectoderm (yellow).",
+        "note": "Embryology: Gastrulation & the three germ layers."
       },
       {
-        place: "Desk / Office",
-        image: "Stack of notes and a paper titled 'Revision' on the desk",
-        note: "Revision: Summary of all key points"
+        "place": "Desk / Office",
+        "image": "There are three anesthesia bottles on the desk: Propofol (white), Ketamine (colorful), and Isoflurane (vapor candle).",
+        "note": "Pharmacology: Basic anesthetic agents and their actions."
       }
     ]
   }
@@ -601,3 +602,4 @@ function initExamplesUI() {
 }
 
 document.addEventListener("DOMContentLoaded", initExamplesUI);
+
