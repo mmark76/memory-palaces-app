@@ -27,121 +27,6 @@
       </button>
     </div>
 
-        <!-- Palace list -->
-    <div class="section">
-      <div id="palaceList" class="palace-list"></div>
-    </div>
-
-
-    <!-- Example memory palaces -->
-    <section class="examples-section">
-      <h2>Example memory palaces</h2>
-
-      <!-- General explanation button -->
-      <button id="examplesInfoBtn" type="button" class="btn-secondary">
-        Some ready memory palaces examples !
-      </button>
-
-      <div id="examplesInfo" class="examples-info hidden">
-        <p>
-          These examples show how different types of information fit into the same memory palace
-          (the same house with 10 loci). Each example uses the same places, but with different
-          things to remember: shopping, recipes, rivers, countries, history, geography, studies.
-          You can read the examples, copy the JSON, or use them as a template to build your own
-          memory palaces.
-        </p>
-      </div>
-
-      <!-- Buttons for each example -->
-      <div class="examples-buttons">
-        <button type="button" data-example="shopping">Shopping list</button>
-        <button type="button" data-example="recipe">Pasta recipe</button>
-        <button type="button" data-example="rivers">10 longest rivers</button>
-        <button type="button" data-example="populousCountries">Most populous countries</button>
-        <button type="button" data-example="largestCountries">Largest countries by area</button>
-        <button type="button" data-example="studies">Studies &amp; exams</button>
-      </div>
-
-      <!-- Preview area for the selected example JSON -->
-      <div id="examplesOutput" class="examples-output">
-        <p class="examples-hint">
-          Select an example to preview its JSON memory palace.
-        </p>
-        <pre id="examplesJsonPreview" class="examples-json"></pre>
-      </div>
-    </section>
-
-  <!-- Load palace -->
-  <div class="section">
-  <label for="palaceImport" class="field-label">
-    Load your Memory Palaces from a JSON file
-  </label>
-  <input
-    type="file"
-    id="palaceImport"
-    accept=".json,application/json"
-  >
-  </div>
-    
-    <!-- Create palace -->
-    <div class="section">
-      <label for="palaceName" class="field-label">
-        Create your own Memory Palace step-by-step
-      </label>
-      <div class="inline-form">
-        <input id="palaceName" placeholder="Name your memory palace before clicking the Create button">
-        <button type="button" onclick="createPalace()">Create</button>
-      </div>
-    </div>
-   
-    <!-- Instructions overlay + help panel -->
-    <div id="instructionsOverlay"></div>
-
-    <div id="helpPanel" class="help-box hidden">
-      <h2>Usage Instructions</h2>
-
-      <p><b>1. Creating a Palace:</b> Type a name and press "Create".</p>
-      <p><b>2. Selecting a Palace:</b> Click on a palace to open it.</p>
-      <p><b>3. Adding a Locus:</b> Fill in on the left the
-        <u>description of the locus (place)</u> and on the right what
-        <u>you want to remember</u>, then press "Add".</p>
-      <p><b>4. Viewing Loci:</b> Each row in the list has two columns:
-        on the left the locus, on the right the association/memory you have defined.</p>
-      <p><b>5. Note:</b> Data is not stored permanently without using localStorage
-        (if you close the page it is lost).</p>
-
-      <button type="button" onclick="toggleHelp()">Close</button>
-    </div>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <title>Memory Palaces App</title>
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-
-<body>
-  <div class="container">
-
-    <!-- Επάνω μπάρα: εικόνα + τίτλος + κουμπί οδηγιών -->
-    <div class="top-row">
-      <div class="header-row">
-        <img
-          src="/assets/image-memory-palace.png"
-          alt="Memory palace illustration"
-          class="header-image"
-        >
-        <h1>Memory Palaces Application</h1>
-      </div>
-
-      <button class="instructions-btn" type="button" onclick="toggleHelp()">
-        Instructions
-      </button>
-    </div>
-
     <!-- Palace list -->
     <div class="section">
       <div id="palaceList" class="palace-list"></div>
@@ -277,9 +162,9 @@
           Save
         </button>
       </div>
-    </div> 
+    </div>
 
-  </div> 
+  </div>
 
   <script src="/js/script.js"></script>
 
@@ -288,14 +173,3 @@
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
