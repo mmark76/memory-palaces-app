@@ -26,7 +26,6 @@ body {
 
 /* =========== TITLES =========== */
 h1 {
-    text-align: center;
     margin-bottom: 20px;
     color: #0a3d62;
     font-weight: 700;
@@ -35,6 +34,21 @@ h1 {
 h2 {
     margin-bottom: 10px;
     color: #0a3d62;
+}
+
+/* εικόνα αριστερά – τίτλος δεξιά */
+.header-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.header-image {
+    max-height: 72px;
+    width: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
 }
 
 /* =========== INPUTS + BUTTONS =========== */
@@ -93,19 +107,6 @@ button:hover {
 
 .inline-form button {
     flex: 0 0 130px;
-}
-
-.hero {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.hero img {
-    max-width: 260px;
-    width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
 
 /* =========== PALACE LIST =========== */
@@ -253,4 +254,3 @@ button:hover {
         flex: none;
     }
 }
-
