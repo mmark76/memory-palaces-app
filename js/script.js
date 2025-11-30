@@ -134,3 +134,22 @@ function renderLoci() {
     list.appendChild(li);
   });
 }
+
+// Upload custom memory palace image for the header
+document.addEventListener("DOMContentLoaded", function () {
+  const fileInput = document.getElementById("palaceImageUpload");
+  const headerImg = document.querySelector(".header-image");
+  if (!fileInput || !headerImg) return;
+
+  fileInput.addEventListener("change", function (event) {
+    const file = event.target.files && event.target.files[0];
+    if (!file) return;
+    if (!file.type.startsWith("image/")) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      headerImg.src = e.target.result; // αντικαθιστά την εικόνα στο header
+    };
+    reader.readAsDataURL(file);
+  });
+});
