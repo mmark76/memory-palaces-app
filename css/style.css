@@ -458,3 +458,22 @@ footer img {
         width: 100%;
     }
 }
+
+.palace-list-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 4px;
+}
+
+.palace-delete-button {
+  padding: 0;               /* no extra space */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  font-size: 12px;          /* μικρό “x” */
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+}
