@@ -95,6 +95,19 @@ button:hover {
     flex: 0 0 130px;
 }
 
+.hero {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.hero img {
+    max-width: 260px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
 /* =========== PALACE LIST =========== */
 .palace-list {
     display: flex;
@@ -240,3 +253,4 @@ button:hover {
         flex: none;
     }
 }
+
