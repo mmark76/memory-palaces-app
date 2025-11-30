@@ -27,23 +27,21 @@
       </button>
     </div>
 
-    <!-- Palace list + save button -->
+    <!-- Palace list + κουμπί save -->
     <div class="section">
-      <div class="palace-save-row">
-        <button type="button" onclick="savePalaces()">
-          Save my palaces in this browser
-        </button>
-      </div>
+      <button type="button" onclick="savePalaces()">
+        Save my palaces in this browser
+      </button>
       <div id="palaceList" class="palace-list"></div>
     </div>
 
-    <!-- Examples section -->
+    <!-- Selected palace -->
     <section class="examples-section">
       <h2>Example memory palaces</h2>
 
       <!-- General explanation button -->
       <button id="examplesInfoBtn" type="button" class="btn-secondary">
-        Some examples that show how different types of information can fit into the same memory palace !
+        What are example memory palaces?
       </button>
 
       <div id="examplesInfo" class="examples-info hidden">
@@ -63,7 +61,7 @@
         <button type="button" data-example="rivers">10 longest rivers</button>
         <button type="button" data-example="populousCountries">Most populous countries</button>
         <button type="button" data-example="largestCountries">Largest countries by area</button>
-        <button type="button" data-example="studies">Studies & exams</button>
+        <button type="button" data-example="studies">Studies &amp; exams</button>
       </div>
 
       <!-- Preview area for the selected example JSON -->
@@ -88,9 +86,8 @@
         <u>you want to remember</u>, then press "Add".</p>
       <p><b>4. Viewing Loci:</b> Each row in the list has two columns:
         on the left the locus, on the right the association/memory you have defined.</p>
-      <p><b>5. Note:</b> Your data is stored permanently in this browser
-        only if you click the button "Save my palaces in this browser".
-        Otherwise, if you close the page, the palaces are lost.</p>
+      <p><b>5. Note:</b> Data is not stored permanently without using localStorage
+        (if you close the page it is lost).</p>
 
       <button type="button" onclick="toggleHelp()">Close</button>
     </div>
@@ -114,7 +111,6 @@
       </div>
     </div>
 
-    <!-- Selected palace -->
     <div id="selectedPalace" class="section hidden">
       <h2 id="palaceTitle">Your Memory Palace</h2>
 
@@ -159,7 +155,7 @@
       </div>
     </div>
 
-  </div> <!-- /end of container -->
+  </div>
 
   <script src="/js/script.js"></script>
 
@@ -168,5 +164,3 @@
   </footer>
 </body>
 </html>
-
-
