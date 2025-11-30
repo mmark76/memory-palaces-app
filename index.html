@@ -27,37 +27,7 @@
       </button>
     </div>
 
-    <!-- Create palace -->
-    <div class="section">
-      <label for="palaceName" class="field-label">
-        or just create your own Memory Palace step-by-step
-      </label>
-      <div class="inline-form">
-        <input id="palaceName" placeholder="Name your memory palace before clicking the Create button">
-        <button type="button" onclick="createPalace()">Create</button>
-      </div>
-    </div>
-
-    <div class="section">
-  <label for="palaceImport" class="field-label">
-    or load your Memory Palaces from a JSON file
-  </label>
-  <input
-    type="file"
-    id="palaceImport"
-    accept=".json,application/json"
-  >
-</div>
-
-    <!-- SAVE BUTTON ακριβώς μετά το CREATE -->
-    <div class="section">
-      <button type="button" onclick="savePalaces()">
-        Save 
-      </button>
-    </div>
-
-
-    <!-- Palace list -->
+        <!-- Palace list -->
     <div class="section">
       <div id="palaceList" class="palace-list"></div>
     </div>
@@ -100,7 +70,35 @@
         <pre id="examplesJsonPreview" class="examples-json"></pre>
       </div>
     </section>
+    
+    <!-- Create palace -->
+    <div class="section">
+      <label for="palaceName" class="field-label">
+        or just create your own Memory Palace step-by-step
+      </label>
+      <div class="inline-form">
+        <input id="palaceName" placeholder="Name your memory palace before clicking the Create button">
+        <button type="button" onclick="createPalace()">Create</button>
+      </div>
+    </div>
 
+    <div class="section">
+  <label for="palaceImport" class="field-label">
+    or load your Memory Palaces from a JSON file
+  </label>
+  <input
+    type="file"
+    id="palaceImport"
+    accept=".json,application/json"
+  >
+</div>
+
+    <!-- SAVE BUTTON ακριβώς μετά το CREATE -->
+    <div class="section">
+      <button type="button" onclick="savePalaces()">
+        Save 
+      </button>
+    </div>
 
     <!-- Instructions overlay + help panel -->
     <div id="instructionsOverlay"></div>
@@ -120,7 +118,6 @@
 
       <button type="button" onclick="toggleHelp()">Close</button>
     </div>
-
 
     <!-- Selected palace -->
     <div id="selectedPalace" class="section hidden">
@@ -176,6 +173,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
