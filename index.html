@@ -27,6 +27,48 @@
       </button>
     </div>
 
+    <!-- Examples section -->
+<section class="examples-section">
+  <h2>Example memory palaces</h2>
+
+  <!-- General explanation button -->
+  <button id="examplesInfoBtn" type="button" class="btn-secondary">
+    What are example memory palaces?
+  </button>
+
+  <div id="examplesInfo" class="examples-info hidden">
+    <p>
+      These examples show how different types of information fit into the same memory palace
+      (the same house with 10 loci). Each example uses the same places, but with different
+      things to remember: shopping, recipes, rivers, countries, history, geography, studies.
+    </p>
+    <p>
+      You can read the examples, copy the JSON, or use them as a template to build your own
+      memory palaces.
+    </p>
+  </div>
+
+  <!-- Buttons for each example -->
+  <div class="examples-buttons">
+    <button type="button" data-example="shopping">Shopping list</button>
+    <button type="button" data-example="recipe">Pasta recipe</button>
+    <button type="button" data-example="rivers">10 longest rivers</button>
+    <button type="button" data-example="populousCountries">Most populous countries</button>
+    <button type="button" data-example="largestCountries">Largest countries by area</button>
+    <button type="button" data-example="worldHistory">World history – key events</button>
+    <button type="button" data-example="geography">Geography – countries & rivers</button>
+    <button type="button" data-example="studies">Studies & exams</button>
+  </div>
+
+  <!-- Preview area for the selected example JSON -->
+  <div id="examplesOutput" class="examples-output">
+    <p class="examples-hint">
+      Select an example to preview its JSON memory palace.
+    </p>
+    <pre id="examplesJsonPreview" class="examples-json"></pre>
+  </div>
+</section>
+
     <!-- Instructions overlay + help panel -->
     <div id="instructionsOverlay"></div>
 
@@ -91,6 +133,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
