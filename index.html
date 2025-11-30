@@ -9,48 +9,54 @@
 </head>
 
 <body>
-  <h1>Memory Palace</h1>
+  <div class="container">
+    <h1>Memory Palace</h1>
 
-  <!-- Instructions button + help panel -->
-  <button onclick="toggleHelp()">Instructions</button>
-  <div id="instructionsOverlay"></div>
-  <div id="helpPanel" class="help-box hidden">
-    <h2>Usage Instructions</h2>
+    <!-- Instructions button + help panel -->
+    <button class="instructions-btn" onclick="toggleHelp()">Instructions</button>
+    <div id="instructionsOverlay"></div>
 
-    <p><b>1. Creating a Palace:</b> Type a name and press "Create".</p>
-    <p><b>2. Selecting a Palace:</b> Click on a palace to open it.</p>
-    <p><b>3. Adding a Locus:</b> Fill in on the left the <u>description of the locus (place)</u> and on the right what <u>you want to remember</u>, then press "Add".</p>
-    <p><b>4. Viewing Loci:</b> Each row in the list has two columns: on the left the locus, on the right the association/memory you have defined.</p>
-    <p><b>5. Note:</b> Data is not stored permanently without using localStorage (if you close the page it is lost).</p>
+    <div id="helpPanel" class="help-box hidden">
+      <h2>Usage Instructions</h2>
 
-    <button onclick="toggleHelp()">Close</button>
-  </div>
+      <p><b>1. Creating a Palace:</b> Type a name and press "Create".</p>
+      <p><b>2. Selecting a Palace:</b> Click on a palace to open it.</p>
+      <p><b>3. Adding a Locus:</b> Fill in on the left the <u>description of the locus (place)</u> and on the right what <u>you want to remember</u>, then press "Add".</p>
+      <p><b>4. Viewing Loci:</b> Each row in the list has two columns: on the left the locus, on the right the association/memory you have defined.</p>
+      <p><b>5. Note:</b> Data is not stored permanently without using localStorage (if you close the page it is lost).</p>
 
-  <!-- Create palace -->
-  <div class="section">
-    <input id="palaceName" placeholder="Palace name">
-    <button onclick="createPalace()">Create</button>
-  </div>
-
-  <!-- Palace list -->
-  <h2>Memory Palaces</h2>
-  <div id="palaceList"></div>
-
-  <!-- Selected palace -->
-  <div id="selectedPalace" class="hidden">
-    <h2 id="palaceTitle"></h2>
-
-    <div class="section locus-form">
-      <input id="locusInput" placeholder="Locus description">
-      <input id="associationInput" placeholder="What I want to remember">
-      <button onclick="addLocus()">Add</button>
+      <button onclick="toggleHelp()">Close</button>
     </div>
 
-    <ol id="locusList" class="locus-list"></ol>
+    <!-- Create palace -->
+    <div class="section">
+      <label for="palaceName" class="field-label">New palace</label>
+      <div class="inline-form">
+        <input id="palaceName" placeholder="Palace name">
+        <button onclick="createPalace()">Create</button>
+      </div>
+    </div>
+
+    <!-- Palace list -->
+    <div class="section">
+      <h2>Memory Palaces</h2>
+      <div id="palaceList" class="palace-list"></div>
+    </div>
+
+    <!-- Selected palace -->
+    <div id="selectedPalace" class="section hidden">
+      <h2 id="palaceTitle"></h2>
+
+      <div class="locus-form">
+        <input id="locusInput" placeholder="Locus description">
+        <input id="associationInput" placeholder="What I want to remember">
+        <button onclick="addLocus()">Add</button>
+      </div>
+
+      <ol id="locusList" class="locus-list"></ol>
+    </div>
   </div>
 
   <script src="js/script.js"></script>
 </body>
-
 </html>
-
