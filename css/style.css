@@ -10,7 +10,8 @@ body {
     background: #f1f4f8;
     color: #1e2a35;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 30px 15px;
 }
 
@@ -26,7 +27,7 @@ body {
 
 /* =========== TITLES =========== */
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: 0;
     color: #0a3d62;
     font-weight: 700;
 }
@@ -36,12 +37,20 @@ h2 {
     color: #0a3d62;
 }
 
+/* επάνω μπάρα: τίτλος + κουμπί */
+.top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
 /* εικόνα αριστερά – τίτλος δεξιά */
 .header-row {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 20px;
 }
 
 .header-image {
@@ -76,6 +85,12 @@ button:hover {
     background: #074060;
 }
 
+/* κουμπί οδηγιών δεξιά, όχι full width */
+.instructions-btn {
+    white-space: nowrap;
+    margin: 0;
+}
+
 /* =========== GENERAL LAYOUT =========== */
 .section {
     margin-top: 20px;
@@ -87,12 +102,6 @@ button:hover {
     font-size: 14px;
     font-weight: 600;
     color: #4b5b6b;
-}
-
-/* Instructions button */
-.instructions-btn {
-    width: 100%;
-    margin-bottom: 10px;
 }
 
 /* Inline form for new palace */
@@ -227,10 +236,24 @@ button:hover {
     background: #074060;
 }
 
+/* =========== FOOTER =========== */
+footer {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #4b5b6b;
+    text-align: center;
+}
+
 /* =========== RESPONSIVE =========== */
 @media (max-width: 760px) {
     .container {
         padding: 18px;
+    }
+
+    .top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 
     h1 {
