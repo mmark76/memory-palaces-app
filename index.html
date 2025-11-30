@@ -27,16 +27,41 @@
       </button>
     </div>
 
-    <!-- Palace list + κουμπί save -->
-<div class="section">
-  <div id="palaceList" class="palace-list"></div>
 
-  <button type="button" onclick="savePalaces()" style="margin-top: 12px;">
-    Save my palaces in this browser
-  </button>
-</div>
+    <!-- Upload custom palace image -->
+    <div class="section">
+      <label for="palaceImageUpload" class="field-label">
+        Upload your own memory palace image
+      </label>
+      <input id="palaceImageUpload" type="file" accept="image/*">
+    </div>
 
-    <!-- Selected palace -->
+    <!-- Create palace -->
+    <div class="section">
+      <label for="palaceName" class="field-label">
+        or just create your own Memory Palace step-by-step
+      </label>
+      <div class="inline-form">
+        <input id="palaceName" placeholder="Palace name">
+        <button type="button" onclick="createPalace()">Create</button>
+      </div>
+    </div>
+
+    <!-- SAVE BUTTON ακριβώς μετά το CREATE -->
+    <div class="section">
+      <button type="button" onclick="savePalaces()">
+        Save my palaces in this browser
+      </button>
+    </div>
+
+
+    <!-- Palace list -->
+    <div class="section">
+      <div id="palaceList" class="palace-list"></div>
+    </div>
+
+
+    <!-- Example memory palaces -->
     <section class="examples-section">
       <h2>Example memory palaces</h2>
 
@@ -74,6 +99,7 @@
       </div>
     </section>
 
+
     <!-- Instructions overlay + help panel -->
     <div id="instructionsOverlay"></div>
 
@@ -93,25 +119,8 @@
       <button type="button" onclick="toggleHelp()">Close</button>
     </div>
 
-    <!-- Upload custom palace image -->
-    <div class="section">
-      <label for="palaceImageUpload" class="field-label">
-        Upload your own memory palace image
-      </label>
-      <input id="palaceImageUpload" type="file" accept="image/*">
-    </div>
 
-    <!-- Create palace -->
-    <div class="section">
-      <label for="palaceName" class="field-label">
-        or just create your own Memory Palace step-by-step
-      </label>
-      <div class="inline-form">
-        <input id="palaceName" placeholder="Palace name">
-        <button type="button" onclick="createPalace()">Create</button>
-      </div>
-    </div>
-
+    <!-- Selected palace -->
     <div id="selectedPalace" class="section hidden">
       <h2 id="palaceTitle">Your Memory Palace</h2>
 
@@ -165,4 +174,3 @@
   </footer>
 </body>
 </html>
-
