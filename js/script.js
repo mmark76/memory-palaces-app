@@ -326,11 +326,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // =========================
-// Example memory palaces (όπως στα αρχικά)
+// Example memory palaces
+// (always the same house with 10 loci)
 // =========================
 
 const examplePalaces = {
-  /* ... ΟΛΟ το block παραμένει ίδιο όπως στο αρχικό αρχείο σου ... */
   shopping: {
     name: "Shopping List",
     loci: [
@@ -403,11 +403,229 @@ const examplePalaces = {
     ]
   },
 
-  /* ... και τα υπόλοιπα examples όπως στο αρχικό ... */
-  rivers: { /* ... */ },
-  populousCountries: { /* ... */ },
-  largestCountries: { /* ... */ },
-  studies: { /* ... */ }
+  rivers: {
+    name: "World's 10 Longest Rivers (Beginner-Friendly)",
+    loci: [
+      {
+        place: "Wooden entrance door",
+        image: "A blue ribbon shaped like a river taped on the door with a pyramid photo next to it.",
+        note: "Nile – Africa"
+      },
+      {
+        place: "Hallway",
+        image: "A tall plant like a mini-jungle, with a wide blue paper river placed under it.",
+        note: "Amazon – South America"
+      },
+      {
+        place: "Living room - sofa",
+        image: "A red Chinese lantern resting on a blue cloth shaped like a river.",
+        note: "Yangtze – China"
+      },
+      {
+        place: "Dining room - table",
+        image: "A brown ribbon across the table with a tiny cowboy hat on it.",
+        note: "Mississippi–Missouri – USA"
+      },
+      {
+        place: "Kitchen - sink",
+        image: "Cold running water with a small snowflake magnet near the faucet.",
+        note: "Yenisei – Russia"
+      },
+      {
+        place: "Kitchen - oven",
+        image: "A bowl filled with warm yellow-colored water inside the oven.",
+        note: "Yellow River – China"
+      },
+      {
+        place: "Balcony",
+        image: "A line on the floor dividing a 'cold' snowy side and a 'warm' grassy side.",
+        note: "Ob–Irtysh – Russia/Kazakhstan"
+      },
+      {
+        place: "Bedroom",
+        image: "Blue wavy bed sheet with a waterfall picture attached at the end.",
+        note: "Paraná – South America"
+      },
+      {
+        place: "Bathroom",
+        image: "Dark-colored water in the bathtub with a green jungle leaf floating.",
+        note: "Congo – Africa"
+      },
+      {
+        place: "Desk / Office",
+        image: "A small drawing of a river placed between a Chinese and a Russian mini-flag.",
+        note: "Amur–Argun – Russia/China"
+      }
+    ]
+  },
+
+  populousCountries: {
+    name: "10 Most Populous Countries (2025)",
+    loci: [
+      {
+        place: "Wooden entrance door",
+        image: "A photo of the Taj Mahal taped to the door with small people stickers around it.",
+        note: "India"
+      },
+      {
+        place: "Hallway",
+        image: "A simple red dragon decoration hanging on the hallway wall.",
+        note: "China"
+      },
+      {
+        place: "Living room - sofa",
+        image: "A small USA flag resting on the sofa cushion.",
+        note: "United States"
+      },
+      {
+        place: "Dining room - table",
+        image: "A printed picture of tropical islands with a volcano placed on the table.",
+        note: "Indonesia"
+      },
+      {
+        place: "Kitchen - sink",
+        image: "A green sports shirt placed next to the sink.",
+        note: "Pakistan"
+      },
+      {
+        place: "Kitchen - oven",
+        image: "A strip of green-white-green paper taped on the oven door.",
+        note: "Nigeria"
+      },
+      {
+        place: "Balcony",
+        image: "A yellow-and-green football placed on the balcony floor.",
+        note: "Brazil"
+      },
+      {
+        place: "Bedroom",
+        image: "A green flag with a red circle pinned above the bed.",
+        note: "Bangladesh"
+      },
+      {
+        place: "Bathroom",
+        image: "Cotton-like snow inside the tub with a small picture of the Kremlin nearby.",
+        note: "Russia"
+      },
+      {
+        place: "Desk / Office",
+        image: "A photo of a long-distance runner next to a coffee mug.",
+        note: "Ethiopia"
+      }
+    ]
+  },
+
+  largestCountries: {
+    name: "10 Largest Countries by Area",
+    loci: [
+      {
+        place: "Wooden entrance door",
+        image: "A large printed map of Russia covering most of the door surface.",
+        note: "Russia"
+      },
+      {
+        place: "Hallway",
+        image: "A maple leaf sticker on the wall symbolizing Canada.",
+        note: "Canada"
+      },
+      {
+        place: "Living room - sofa",
+        image: "A simple map of China placed on the sofa cushion.",
+        note: "China"
+      },
+      {
+        place: "Dining room - table",
+        image: "A USA map used as a tablecloth.",
+        note: "United States"
+      },
+      {
+        place: "Kitchen - sink",
+        image: "A football and a samba-style mask next to the sink.",
+        note: "Brazil"
+      },
+      {
+        place: "Kitchen - oven",
+        image: "A kangaroo photo taped on the oven door.",
+        note: "Australia"
+      },
+      {
+        place: "Balcony",
+        image: "A small Indian flag attached to the balcony railing.",
+        note: "India"
+      },
+      {
+        place: "Bedroom",
+        image: "An Argentina flag printed on a pillowcase.",
+        note: "Argentina"
+      },
+      {
+        place: "Bathroom",
+        image: "A picture of horses placed on the bathroom mirror.",
+        note: "Kazakhstan"
+      },
+      {
+        place: "Desk / Office",
+        image: "A desert photo with the word 'Algeria' written, placed on the desk.",
+        note: "Algeria"
+      }
+    ]
+  },
+
+  studies: {
+    name: "Medicine – Simplified Memory Images",
+    loci: [
+      {
+        place: "Wooden entrance door",
+        image: "A clear picture of a liver taped at eye level on the door, with two colored arrows next to it.",
+        note: "Liver basics"
+      },
+      {
+        place: "Hallway",
+        image: "A drawing of a pink pancreas shape placed on the floor like a floor-mat.",
+        note: "Pancreas basics"
+      },
+      {
+        place: "Living room - sofa",
+        image: "Two lung-shaped balloons resting on the sofa.",
+        note: "Lung volumes"
+      },
+      {
+        place: "Dining room - table",
+        image: "A simple kidney drawing placed in the center of the table.",
+        note: "Kidney filtration"
+      },
+      {
+        place: "Kitchen - sink",
+        image: "Running water with a small note saying 'Urea' stuck beside the faucet.",
+        note: "Urea cycle"
+      },
+      {
+        place: "Kitchen - oven",
+        image: "A round printed diagram placed inside the oven.",
+        note: "Krebs cycle"
+      },
+      {
+        place: "Balcony",
+        image: "Two pieces of paper hanging with clothespins: one purple, one pink.",
+        note: "Gram+ vs Gram–"
+      },
+      {
+        place: "Bedroom",
+        image: "Three pillows of different shapes lined neatly on the bed.",
+        note: "Types of epithelial cells"
+      },
+      {
+        place: "Bathroom",
+        image: "Three colored sponges (blue, red, yellow) placed on the bathtub edge.",
+        note: "Embryonic layers"
+      },
+      {
+        place: "Desk / Office",
+        image: "A paper with three bottle drawings placed on the desk.",
+        note: "Basic anesthetic drugs"
+      }
+    ]
+  }
 };
 
 // =========================
@@ -441,3 +659,4 @@ function initExamplesUI() {
 }
 
 document.addEventListener("DOMContentLoaded", initExamplesUI);
+
