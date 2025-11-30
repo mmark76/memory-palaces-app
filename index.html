@@ -1,55 +1,55 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <title>Memory Palace App</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <h1>Memory Palace</h1>
 
-  <!-- Κουμπί Οδηγιών + Help Panel -->
-  <button onclick="toggleHelp()">Οδηγίες</button>
+  <!-- Instructions button + help panel -->
+  <button onclick="toggleHelp()">Instructions</button>
 
   <div id="helpPanel" class="help-box hidden">
-    <h2>Οδηγίες Χρήσης</h2>
+    <h2>Usage Instructions</h2>
 
-    <p><b>1. Δημιουργία Παλατιού:</b> Πληκτρολόγησε όνομα και πάτησε «Δημιουργία».</p>
-    <p><b>2. Επιλογή Παλατιού:</b> Κάνε κλικ σε ένα παλάτι για να το ανοίξεις.</p>
-    <p><b>3. Προσθήκη Locus:</b> Συμπλήρωσε αριστερά την <u>περιγραφή του locus (χώρου)</u> και δεξιά αυτό που <u>θέλεις να θυμάσαι</u>, έπειτα πάτησε «Προσθήκη».</p>
-    <p><b>4. Προβολή Loci:</b> Κάθε γραμμή στη λίστα έχει δύο στήλες: αριστερά το locus, δεξιά τη συσχέτιση/ανάμνηση που έχεις ορίσει.</p>
-    <p><b>5. Σημείωση:</b> Τα δεδομένα δεν αποθηκεύονται μόνιμα χωρίς χρήση localStorage (αν κλείσεις τη σελίδα χάνονται).</p>
+    <p><b>1. Creating a Palace:</b> Type a name and press "Create".</p>
+    <p><b>2. Selecting a Palace:</b> Click on a palace to open it.</p>
+    <p><b>3. Adding a Locus:</b> Fill in on the left the <u>description of the locus (place)</u> and on the right what <u>you want to remember</u>, then press "Add".</p>
+    <p><b>4. Viewing Loci:</b> Each row in the list has two columns: on the left the locus, on the right the association/memory you have defined.</p>
+    <p><b>5. Note:</b> Data is not stored permanently without using localStorage (if you close the page it is lost).</p>
 
-    <button onclick="toggleHelp()">Κλείσιμο</button>
+    <button onclick="toggleHelp()">Close</button>
   </div>
 
-  <!-- Δημιουργία παλατιού -->
+  <!-- Create palace -->
   <div class="section">
-    <input id="palaceName" placeholder="Όνομα παλατιού">
-    <button onclick="createPalace()">Δημιουργία</button>
+    <input id="palaceName" placeholder="Palace name">
+    <button onclick="createPalace()">Create</button>
   </div>
 
-  <!-- Λίστα παλατιών -->
-  <h2>Παλάτια Μνήμης</h2>
+  <!-- Palace list -->
+  <h2>Memory Palaces</h2>
   <div id="palaceList"></div>
 
-  <!-- Επιλεγμένο παλάτι -->
+  <!-- Selected palace -->
   <div id="selectedPalace" class="hidden">
     <h2 id="palaceTitle"></h2>
 
     <div class="section locus-form">
-      <input id="locusInput" placeholder="Περιγραφή locus">
-      <input id="associationInput" placeholder="Τι θέλω να θυμάμαι">
-      <button onclick="addLocus()">Προσθήκη</button>
+      <input id="locusInput" placeholder="Locus description">
+      <input id="associationInput" placeholder="What I want to remember">
+      <button onclick="addLocus()">Add</button>
     </div>
 
     <ol id="locusList" class="locus-list"></ol>
   </div>
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
