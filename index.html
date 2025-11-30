@@ -9,15 +9,25 @@
 </head>
 
 <body>
-<div class="header-row">
-  <img src="assets/image memory palace.png"
-       alt="Memory palace illustration"
-       class="header-image">
-  <h1>Memory Palace</h1>
-</div>
+  <div class="container">
 
-    <!-- Instructions button + help panel -->
-    <button class="instructions-btn" onclick="toggleHelp()">Instructions</button>
+    <!-- Επάνω μπάρα: εικόνα + τίτλος + κουμπί οδηγιών -->
+    <div class="top-row">
+      <div class="header-row">
+        <img
+          src="assets/image-memory-palace.png"
+          alt="Memory palace illustration"
+          class="header-image"
+        >
+        <h1>Memory Palace</h1>
+      </div>
+
+      <button class="instructions-btn" type="button" onclick="toggleHelp()">
+        Instructions
+      </button>
+    </div>
+
+    <!-- Instructions overlay + help panel -->
     <div id="instructionsOverlay"></div>
 
     <div id="helpPanel" class="help-box hidden">
@@ -25,11 +35,15 @@
 
       <p><b>1. Creating a Palace:</b> Type a name and press "Create".</p>
       <p><b>2. Selecting a Palace:</b> Click on a palace to open it.</p>
-      <p><b>3. Adding a Locus:</b> Fill in on the left the <u>description of the locus (place)</u> and on the right what <u>you want to remember</u>, then press "Add".</p>
-      <p><b>4. Viewing Loci:</b> Each row in the list has two columns: on the left the locus, on the right the association/memory you have defined.</p>
-      <p><b>5. Note:</b> Data is not stored permanently without using localStorage (if you close the page it is lost).</p>
+      <p><b>3. Adding a Locus:</b> Fill in on the left the
+        <u>description of the locus (place)</u> and on the right what
+        <u>you want to remember</u>, then press "Add".</p>
+      <p><b>4. Viewing Loci:</b> Each row in the list has two columns:
+        on the left the locus, on the right the association/memory you have defined.</p>
+      <p><b>5. Note:</b> Data is not stored permanently without using localStorage
+        (if you close the page it is lost).</p>
 
-      <button onclick="toggleHelp()">Close</button>
+      <button type="button" onclick="toggleHelp()">Close</button>
     </div>
 
     <!-- Create palace -->
@@ -37,7 +51,7 @@
       <label for="palaceName" class="field-label">New palace</label>
       <div class="inline-form">
         <input id="palaceName" placeholder="Palace name">
-        <button onclick="createPalace()">Create</button>
+        <button type="button" onclick="createPalace()">Create</button>
       </div>
     </div>
 
@@ -54,22 +68,26 @@
       <div class="locus-form">
         <input id="locusInput" placeholder="Locus description">
         <input id="associationInput" placeholder="What I want to remember">
-        <button onclick="addLocus()">Add</button>
+        <button type="button" onclick="addLocus()">Add</button>
       </div>
 
       <ol id="locusList" class="locus-list"></ol>
     </div>
-  </div>
+
+  </div> <!-- /container -->
 
   <script src="js/script.js"></script>
 
- <footer> 
+  <footer>
     <h4>© 2025 Markellos Markides. All rights reserved.</h4>
-    <img alt="Copyrighted.com Registered &amp; Protected" border="0" width="125" height="25" srcset="https://static.copyrighted.com/badges/125x25/03_2_2x.png 2x" src="https://static.copyrighted.com/badges/125x25/03_2.png"></a>
+    <img
+      alt="Copyrighted.com Registered &amp; Protected"
+      border="0"
+      width="125"
+      height="25"
+      srcset="https://static.copyrighted.com/badges/125x25/03_2_2x.png 2x"
+      src="https://static.copyrighted.com/badges/125x25/03_2.png"
+    >
   </footer>
-  
 </body>
 </html>
-
-
-
