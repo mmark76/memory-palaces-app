@@ -57,19 +57,22 @@ function renderPalaces() {
   const list = document.getElementById("palaceList");
   if (!list) return;
 
+  // Clear existing content
   list.innerHTML = "";
 
   palaces.forEach((p, index) => {
-    // wrapper for palace button + delete button
+    // Wrapper for palace button + delete button
     const wrapper = document.createElement("div");
     wrapper.className = "palace-list-item";
 
+    // Main button: select palace
     const btn = document.createElement("button");
     btn.className = "palace-button";
     btn.type = "button";
     btn.textContent = p.name;
     btn.onclick = () => selectPalace(index);
 
+    // Delete button
     const deleteBtn = document.createElement("button");
     deleteBtn.className = "palace-delete-button";
     deleteBtn.type = "button";
@@ -85,6 +88,48 @@ function renderPalaces() {
   });
 }
 
+// Delete a palace by index
+function deletePalace(index) {
+  if (index < 0 || index >= palaces.length) return;
+
+  const palaceToDelete = palaces[index];
+
+  const shouldDelete = confirm(
+    `Delete memory palace "${palaceToDelete.name}"? This cannot be undone.`
+  );
+  if (!shouldDelete) return;
+
+  // Remove from array
+  palaces.splice(index, 1);
+
+  // If we deleted the currently selected palace
+  if (currentPalace === palaceToDelete) {
+    if (palaces.length > 0) {
+      // Select first remaining palace
+      selectPalace(0);
+    } else {
+      // No palaces left → reset UI
+      currentPalace = null;
+
+      const titleEl = document.getElementById("palaceTitle");
+      const selectedBox = document.getElementById("selectedPalace");
+      const locusList = document.getElementById("locusList");
+
+      if (titleEl) titleEl.textContent = "Your Memory Palace";
+      if (selectedBox) selectedBox.classList.add("hidden");
+      if (locusList) locusList.innerHTML = "";
+    }
+  } else {
+    // Just refresh loci for currentPalace (indices changed)
+    renderLoci();
+  }
+
+  // Re-render list and save (if storage function exists)
+  renderPalaces();
+  if (typeof savePalacesToStorage === "function") {
+    savePalacesToStorage();
+  }
+}
 
 // Επιλογή παλατιού
 function selectPalace(index) {
@@ -818,4 +863,5 @@ document.addEventListener("DOMContentLoaded", function () {
     reader.readAsText(file);
   });
 });
+
 
