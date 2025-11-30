@@ -267,37 +267,24 @@ function savePalaces() {
       palaces: palaces,
       selectedIndex: palaces.indexOf(currentPalace)
     };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    alert("Your memory palaces have been saved in this browser.");
+
+    const json = JSON.stringify(data, null, 2);
+
+    // Create a downloadable JSON file
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "memory-palaces.json"; // file name for download
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    URL.revokeObjectURL(url);
   } catch (err) {
-    console.error("Could not save palaces:", err);
-  }
-}
-
-function loadPalacesFromStorage() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) {
-      renderPalaces();
-      return;
-    }
-
-    const data = JSON.parse(raw);
-    if (!data || !Array.isArray(data.palaces)) {
-      renderPalaces();
-      return;
-    }
-
-    palaces = data.palaces;
-    renderPalaces();
-
-    const idx = data.selectedIndex;
-    if (typeof idx === "number" && idx >= 0 && idx < palaces.length) {
-      selectPalace(idx);
-    }
-  } catch (err) {
-    console.error("Could not load palaces:", err);
-    renderPalaces();
+    console.error("Could not export palaces:", err);
+    alert("An error occurred while saving to file.");
   }
 }
 
@@ -747,3 +734,4 @@ document.addEventListener("DOMContentLoaded", function () {
     reader.readAsText(file);
   });
 });
+
