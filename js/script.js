@@ -659,3 +659,56 @@ function initExamplesUI() {
 }
 
 document.addEventListener("DOMContentLoaded", initExamplesUI);
+
+const importInput = document.getElementById("palaceImport");
+if (importInput) {
+  importInput.addEventListener("change", function (event) {
+    const file = event.target.files && event.target.files[0];
+    if (!file) return;
+
+    // Έλεγχος MIME
+    if (file.type !== "application/json") {
+      alert("Το αρχείο πρέπει να είναι JSON.");
+      importInput.value = "";
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      try {
+        const data = JSON.parse(e.target.result);
+
+        // ===== Έλεγχος δομής =====
+        if (
+          typeof data !== "object" ||
+          typeof data.name !== "string" ||
+          !Array.isArray(data.loci)
+        ) {
+          throw new Error("Άκυρη δομή JSON.");
+        }
+
+        // Έλεγχος κάθε locus
+        for (const loc of data.loci) {
+          if (
+            typeof loc !== "object" ||
+            typeof loc.locus !== "string" ||
+            typeof loc.association !== "string"
+          ) {
+            throw new Error("Άκυρη δομή loci.");
+          }
+        }
+
+        // Αν όλα είναι έγκυρα → πρόσθεσέ το στη λίστα
+        palaces.push(data);
+        renderPalaces();
+
+        alert("Το memory palace εισήχθη επιτυχώς!");
+
+      } catch (err) {
+        alert("Μη έγκυρο αρχείο JSON.\n" + err.message);
+      }
+    };
+
+    reader.readAsText(file);
+  });
+}
