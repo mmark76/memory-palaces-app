@@ -35,18 +35,7 @@
     </div>
 
     <!-- Selected palace -->
-    <div id="selectedPalace" class="section hidden">
-      <h2 id="palaceTitle"></h2>
-
-      <div class="locus-form">
-        <input id="locusInput" placeholder="Locus description">
-        <input id="associationInput" placeholder="What I want to remember">
-        <button type="button" onclick="addLocus()">Add</button>
-      </div>
-
-      <ol id="locusList" class="locus-list"></ol>
-    </div>
-    
+ 
 <section class="examples-section">
   <h2>Example memory palaces</h2>
 
@@ -121,7 +110,17 @@
     </div>
 
   </div> <!-- /container -->
+    <div id="selectedPalace" class="section hidden">
+      <h2 id="palaceTitle">Your Memory Palace</h2>
 
+      <div class="locus-form">
+        <input id="locusInput" placeholder="Locus description">
+        <input id="associationInput" placeholder="What I want to remember">
+        <button type="button" onclick="addLocus()">Add</button>
+      </div>
+
+      <ol id="locusList" class="locus-list"></ol>
+    </div>
   <script src="js/script.js"></script>
 
   <footer>
@@ -129,6 +128,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
