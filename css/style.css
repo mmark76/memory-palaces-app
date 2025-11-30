@@ -260,13 +260,20 @@ footer {
         font-size: 22px;
     }
 
-    input, button {
+    input,
+    button {
         font-size: 14px;
         padding: 11px;
     }
 
     .inline-form {
         flex-direction: column;
+    }
+
+    /* ΔΙΟΡΘΩΣΗ για το μεγάλο κουτί "Create" */
+    .inline-form button {
+        flex: 0 0 auto;   /* να μην έχει σταθερό ύψος */
+        width: 100%;      /* κανονικό, λεπτό κουμπί σε όλο το πλάτος */
     }
 
     .locus-list li {
@@ -289,3 +296,4 @@ footer img {
   display: block;
   margin: 6px auto 0;
 }
+
