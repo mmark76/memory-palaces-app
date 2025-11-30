@@ -70,6 +70,18 @@
         <pre id="examplesJsonPreview" class="examples-json"></pre>
       </div>
     </section>
+
+     <!-- Load palace -->
+  <div class="section">
+  <label for="palaceImport" class="field-label">
+    Load your Memory Palaces from a JSON file
+  </label>
+  <input
+    type="file"
+    id="palaceImport"
+    accept=".json,application/json"
+  >
+  </div>
     
     <!-- Create palace -->
     <div class="section">
@@ -82,24 +94,13 @@
       </div>
     </div>
 
-        <!-- SAVE BUTTON ακριβώς μετά το CREATE -->
+    <!-- SAVE BUTTON ακριβώς μετά το CREATE -->
     <div class="section">
       <button type="button" onclick="savePalaces()">
         Save 
       </button>
     </div>
     
-    <div class="section">
-  <label for="palaceImport" class="field-label">
-    or load your Memory Palaces from a JSON file
-  </label>
-  <input
-    type="file"
-    id="palaceImport"
-    accept=".json,application/json"
-  >
-</div>
-
     <!-- Instructions overlay + help panel -->
     <div id="instructionsOverlay"></div>
 
@@ -173,6 +174,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
