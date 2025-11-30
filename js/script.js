@@ -101,3 +101,8 @@ function renderLoci() {
   });
 }
 
+document.getElementById("instructionsModal").style.display = "block";
+document.getElementById("instructionsOverlay").style.display = "block";
+document.getElementById("instructionsModal").style.display = "none";
+document.getElementById("instructionsOverlay").style.display = "none";
+
