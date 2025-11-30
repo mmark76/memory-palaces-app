@@ -126,3 +126,42 @@ li {
     }
 }
 
+/* ============
+   INSTRUCTIONS MODAL
+   ============ */
+#instructionsModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #0a3d62;
+    color: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    
+    /* Το σημαντικότερο */
+    width: 90%;
+    max-width: 600px;   /* Έτσι ΔΕΝ απλώνεται παντού */
+}
+
+/* Τίτλος μέσα στο modal */
+#instructionsModal h2 {
+    margin-bottom: 12px;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+/* Περιεχόμενο */
+#instructionsModal p {
+    line-height: 1.5;
+}
+
+/* Close button στο modal */
+#closeInstructionsBtn {
+    margin-top: 20px;
+    background: #074060;
+    border-radius: 10px;
+    padding: 10px 0;
+}
+
