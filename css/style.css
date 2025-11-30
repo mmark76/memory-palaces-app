@@ -1,0 +1,67 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.section {
+  margin: 15px 0;
+}
+
+input {
+  padding: 6px;
+  font-size: 16px;
+}
+
+button {
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.palace-button {
+  margin: 5px 0;
+  padding: 8px 12px;
+  border: 1px solid #333;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Help panel */
+.help-box {
+  background: #f7f7f7;
+  border: 1px solid #999;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 6px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.locus-form input {
+  margin-right: 8px;
+}
+
+.locus-list {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.locus-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 600px;
+}
+
+.locus-text {
+  flex: 1;
+}
+
+.locus-assoc {
+  flex: 1;
+  text-align: right;
+}
