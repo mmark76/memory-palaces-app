@@ -82,7 +82,7 @@ function selectPalace(index) {
   if (titleEl) titleEl.textContent = currentPalace.name;
   if (selectedBox) selectedBox.classList.remove("hidden");
 
-  // Reset flashcards UI when αλλάζουμε παλάτι
+  // Reset flashcards UI όταν αλλάζουμε παλάτι
   if (flashcardsSection) {
     flashcardsSection.classList.add("hidden");
   }
@@ -158,7 +158,6 @@ function renderLoci() {
     list.appendChild(li);
   });
 
-  // Ενεργοποίηση / απόκρυψη των flashcards ανάλογα με το αν υπάρχουν loci
   const flashcardsSection = document.getElementById("flashcardsSection");
   if (flashcardsSection) {
     if (loci.length) {
@@ -653,10 +652,10 @@ function initExamplesUI() {
       const palace = examplePalaces[key];
       if (!palace) return;
 
+      // Show the selected example JSON (pretty-printed)
       previewPre.textContent = JSON.stringify(palace, null, 2);
     });
   }
 }
 
 document.addEventListener("DOMContentLoaded", initExamplesUI);
-
