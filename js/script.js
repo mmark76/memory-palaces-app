@@ -301,28 +301,10 @@ function loadPalacesFromStorage() {
   }
 }
 
-// Upload custom memory palace image for the header
 document.addEventListener("DOMContentLoaded", function () {
-  const fileInput = document.getElementById("palaceImageUpload");
-  const headerImg = document.querySelector(".header-image");
-
-  if (fileInput && headerImg) {
-    fileInput.addEventListener("change", function (event) {
-      const file = event.target.files && event.target.files[0];
-      if (!file) return;
-      if (!file.type.startsWith("image/")) return;
-
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        headerImg.src = e.target.result; // αντικαθιστά την εικόνα στο header
-      };
-      reader.readAsDataURL(file);
-    });
-  }
-
   // Φόρτωση αποθηκευμένων παλατιών μετά το φόρτωμα του DOM
   loadPalacesFromStorage();
-});
+})
 
 // =========================
 // Example memory palaces
@@ -657,107 +639,3 @@ function initExamplesUI() {
     });
   }
 }
-
-document.addEventListener("DOMContentLoaded", initExamplesUI);
-
-document.addEventListener("DOMContentLoaded", function () {
-  const importInput = document.getElementById("palaceImport");
-
-  if (!importInput) return;
-
-  importInput.addEventListener("change", function (event) {
-    const file = event.target.files && event.target.files[0];
-    if (!file) return;
-
-    // Έλεγχος επέκτασης
-    if (!file.name.endsWith(".json")) {
-      alert("Το αρχείο πρέπει να είναι .json");
-      importInput.value = "";
-      return;
-    }
-
-    // Προαιρετικός έλεγχος MIME (σε κάποιους browsers είναι κενό)
-    if (file.type && file.type !== "application/json") {
-      console.warn("MIME type δεν είναι 'application/json', συνεχίζω έλεγχο περιεχομένου.");
-    }
-
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      try {
-        const text = e.target.result;
-        const data = JSON.parse(text);
-
-        // ===== Έλεγχος ρίζας: { palaces: [...], selectedIndex } =====
-        if (typeof data !== "object" || data === null) {
-          throw new Error("Η ρίζα του JSON πρέπει να είναι αντικείμενο.");
-        }
-
-        if (!Array.isArray(data.palaces)) {
-          throw new Error("Το πεδίο 'palaces' πρέπει να είναι πίνακας.");
-        }
-
-        const selectedIndex = data.selectedIndex;
-
-        // ===== Έλεγχος παλατιών =====
-        data.palaces.forEach((p, palaceIndex) => {
-          if (typeof p !== "object" || p === null) {
-            throw new Error(`Παλάτι #${palaceIndex}: δεν είναι έγκυρο αντικείμενο.`);
-          }
-
-          if (typeof p.name !== "string" || !p.name.trim()) {
-            throw new Error(`Παλάτι #${palaceIndex}: λείπει ή είναι άδειο το 'name'.`);
-          }
-
-          if (!Array.isArray(p.loci)) {
-            throw new Error(`Παλάτι '${p.name}': το 'loci' πρέπει να είναι πίνακας.`);
-          }
-
-          p.loci.forEach((loc, locIndex) => {
-            if (typeof loc !== "object" || loc === null) {
-              throw new Error(`Παλάτι '${p.name}', locus #${locIndex}: δεν είναι αντικείμενο.`);
-            }
-
-            if (typeof loc.locus !== "string") {
-              throw new Error(
-                `Παλάτι '${p.name}', locus #${locIndex}: λείπει ή δεν είναι string το 'locus'.`
-              );
-            }
-
-            if (typeof loc.association !== "string") {
-              throw new Error(
-                `Παλάτι '${p.name}', locus #${locIndex}: λείπει ή δεν είναι string το 'association'.`
-              );
-            }
-          });
-        });
-
-        // ===== Αν όλα είναι ΟΚ → αντικαθιστούμε τα τρέχοντα palaces =====
-        palaces = data.palaces;
-        renderPalaces();
-
-        if (
-          typeof selectedIndex === "number" &&
-          selectedIndex >= 0 &&
-          selectedIndex < palaces.length
-        ) {
-          selectPalace(selectedIndex);
-        } else if (palaces.length > 0) {
-          selectPalace(0);
-        }
-
-        alert("Τα Memory Palaces φορτώθηκαν επιτυχώς από το JSON αρχείο.");
-
-      } catch (err) {
-        alert(
-          "Το αρχείο JSON δεν είναι στη μορφή που χρησιμοποιεί η εφαρμογή.\n\nΛεπτομέρεια: " +
-            err.message
-        );
-      } finally {
-        // Καθάρισμα για να μπορείς να ξαναδιαλέξεις το ίδιο αρχείο
-        importInput.value = "";
-      }
-    };
-
-    reader.readAsText(file);
-  });
-});
