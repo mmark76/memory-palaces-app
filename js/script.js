@@ -232,61 +232,61 @@ const examplePalaces = {
     ]
   },
 
-  rivers: {
-    name: "World's 10 Longest Rivers",
-    loci: [
+  "rivers": {
+    "name": "World's 10 Longest Rivers (Beginner-Friendly)",
+    "loci": [
       {
-        place: "Wooden entrance door",
-        image: "Blue ribbon river with pyramids and pharaohs around the door",
-        note: "Nile – Africa"
+        "place": "Wooden entrance door",
+        "image": "A simple blue river drawn like a long snake, with one big pyramid next to it.",
+        "note": "Nile – Africa (easy clue: pyramids = Egypt = Nile)."
       },
       {
-        place: "Hallway",
-        image: "Hallway turned into a jungle with a huge wide river",
-        note: "Amazon – South America"
+        "place": "Hallway",
+        "image": "A huge rainforest tree standing in the hallway with a very wide river flowing slowly under it.",
+        "note": "Amazon – South America (easy clue: rainforest = Amazon)."
       },
       {
-        place: "Living room - sofa",
-        image: "River with a Chinese dragon flying above it on the sofa",
-        note: "Yangtze – China"
+        "place": "Living room - sofa",
+        "image": "A calm river on the sofa with a red Chinese lantern floating on it.",
+        "note": "Yangtze – China (easy clue: lanterns = China)."
       },
       {
-        place: "Dining room - table",
-        image: "Table turned into a river with cowboy boats and jazz band",
-        note: "Mississippi–Missouri – North America"
+        "place": "Dining room - table",
+        "image": "A long brown river crossing the table with a tiny cowboy hat floating on it.",
+        "note": "Mississippi–Missouri – North America (easy clue: cowboys = USA)."
       },
       {
-        place: "Kitchen - sink",
-        image: "Frozen water pouring from the tap, icy fishermen around",
-        note: "Yenisei – Mongolia/Russia"
+        "place": "Kitchen - sink",
+        "image": "Cold icy water from the tap and a simple snowflake symbol next to it.",
+        "note": "Yenisei – Russia (easy clue: Russia = cold)."
       },
       {
-        place: "Kitchen - oven",
-        image: "Oven overflowing with yellow muddy water",
-        note: "Yellow River – China"
+        "place": "Kitchen - oven",
+        "image": "The oven filled with yellow-colored water, like warm tea.",
+        "note": "Yellow River – China (easy clue: yellow color = Yellow River)."
       },
       {
-        place: "Balcony",
-        image: "River splitting a frozen Russian town and endless steppe",
-        note: "Ob–Irtysh – Russia/Kazakhstan"
+        "place": "Balcony",
+        "image": "A balcony split into two areas: one snowy, one grassy, with a river line between them.",
+        "note": "Ob–Irtysh – Russia/Kazakhstan (easy clue: snowy Russia vs grasslands)."
       },
       {
-        place: "Bedroom",
-        image: "Bed floating on a river ending in giant waterfalls",
-        note: "Paraná – South America"
+        "place": "Bedroom",
+        "image": "The bed floating on gentle river waves with a big waterfall at the end.",
+        "note": "Paraná – South America (easy clue: river + waterfall = Iguazu)."
       },
       {
-        place: "Bathroom",
-        image: "Bathtub filled with dark jungle river water and a gorilla",
-        note: "Congo – Africa"
+        "place": "Bathroom",
+        "image": "The bathtub full of dark water with a simple jungle leaf floating on it.",
+        "note": "Congo – Africa (easy clue: African jungle = Congo)."
       },
       {
-        place: "Desk / Office",
-        image: "On the desk, a river separating Russian and Chinese landscapes with a tiger on a bridge",
-        note: "Amur–Argun – Russia/China/Mongolia"
+        "place": "Desk / Office",
+        "image": "A simple river line on the desk with one Chinese flag on one side and one Russian flag on the other.",
+        "note": "Amur–Argun – Russia/China (easy clue: river between the two flags)."
       }
     ]
-  },
+  }
 
   populousCountries: {
     name: "10 Most Populous Countries (2025)",
@@ -602,4 +602,5 @@ function initExamplesUI() {
 }
 
 document.addEventListener("DOMContentLoaded", initExamplesUI);
+
 
