@@ -11,7 +11,7 @@
 <body>
   <div class="container">
 
-    <!-- Επάνω μπάρα: εικόνα + τίτλος + κουμπί οδηγιών -->
+    <!-- Top bar: image + title + instructions button -->
     <div class="top-row">
       <div class="header-row">
         <img
@@ -38,7 +38,7 @@
 
       <!-- General explanation button -->
       <button id="examplesInfoBtn" type="button" class="btn-secondary">
-        Some ready memory palaces examples !
+        Some ready memory palaces examples!
       </button>
 
       <div id="examplesInfo" class="examples-info hidden">
@@ -101,13 +101,13 @@
 
       <p><b>1. Creating a Palace:</b> Type a name and press "Create".</p>
       <p><b>2. Selecting a Palace:</b> Click on a palace to open it.</p>
-      <p><b>3. Adding a Locus:</b> Fill in on the left the
+      <p><b>3. Adding a Locus:</b> On the left, type the
         <u>description of the locus (place)</u> and on the right what
         <u>you want to remember</u>, then press "Add".</p>
       <p><b>4. Viewing Loci:</b> Each row in the list has two columns:
         on the left the locus, on the right the association/memory you have defined.</p>
-      <p><b>5. Note:</b> Data is not stored permanently without using localStorage
-        (if you close the page it is lost).</p>
+      <p><b>5. Note:</b> Data is not stored permanently unless you save it to a JSON file
+        and load it again later.</p>
 
       <button type="button" onclick="toggleHelp()">Close</button>
     </div>
@@ -124,14 +124,13 @@
 
       <ol id="locusList" class="locus-list"></ol>
 
-   <!-- Save button always last for this palace -->
+      <!-- Save button for this palace -->
       <div class="section">
         <button type="button" onclick="savePalaces()">
           Save
         </button>
       </div>
-    </div>
-    
+
       <!-- Flashcards practice -->
       <div id="flashcardsSection" class="section flashcards hidden">
         <h3>Practice as flashcards</h3>
@@ -164,8 +163,6 @@
         </div>
       </div>
 
-
-
   </div>
 
   <script src="/js/script.js"></script>
@@ -174,5 +171,7 @@
     <h4>© 2025 Markellos Markides. All rights reserved.</h4>
   </footer>
 </body>
+
 </html>
+
 
