@@ -52,7 +52,7 @@ function createPalace() {
   savePalacesToStorage();
 }
 
-// Εμφάνιση λίστας παλατιών
+// Show palaces list (with delete button)
 function renderPalaces() {
   const list = document.getElementById("palaceList");
   if (!list) return;
@@ -60,14 +60,31 @@ function renderPalaces() {
   list.innerHTML = "";
 
   palaces.forEach((p, index) => {
+    // wrapper for palace button + delete button
+    const wrapper = document.createElement("div");
+    wrapper.className = "palace-list-item";
+
     const btn = document.createElement("button");
     btn.className = "palace-button";
     btn.type = "button";
     btn.textContent = p.name;
     btn.onclick = () => selectPalace(index);
-    list.appendChild(btn);
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "palace-delete-button";
+    deleteBtn.type = "button";
+    deleteBtn.textContent = "×"; // or "Delete"
+    deleteBtn.onclick = (event) => {
+      event.stopPropagation(); // avoid selecting palace when clicking delete
+      deletePalace(index);
+    };
+
+    wrapper.appendChild(btn);
+    wrapper.appendChild(deleteBtn);
+    list.appendChild(wrapper);
   });
 }
+
 
 // Επιλογή παλατιού
 function selectPalace(index) {
@@ -801,3 +818,4 @@ document.addEventListener("DOMContentLoaded", function () {
     reader.readAsText(file);
   });
 });
+
