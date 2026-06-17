@@ -3,7 +3,7 @@ name: Add ecosystem back link
 on:
   push:
     paths:
-      - .github/.ecosystem-trigger
+      - ECOSYSTEM_LINK_REQUEST.md
 
 permissions:
   contents: write
