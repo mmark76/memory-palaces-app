@@ -521,3 +521,109 @@ footer img {
   background: #111;
   transform: translateY(-1px);
 }
+
+
+/* Consent-aware Google Analytics */
+.analytics-choice-button {
+  margin-top: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #555;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.analytics-choice-button:hover,
+.analytics-choice-button:focus-visible {
+  background: rgba(127, 127, 127, 0.12);
+}
+
+.analytics-consent[hidden] {
+  display: none;
+}
+
+.analytics-consent {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 1200;
+  display: flex;
+  width: min(900px, calc(100% - 32px));
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 20px;
+  border: 1px solid #aeb6c0;
+  border-radius: 14px;
+  background: #fff;
+  color: #1f2937;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.24);
+}
+
+.analytics-consent h2 {
+  margin: 0 0 5px;
+  font-size: 1rem;
+}
+
+.analytics-consent p {
+  max-width: 650px;
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.analytics-consent-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.analytics-consent-actions button {
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #aeb6c0;
+  border-radius: 999px;
+  background: #fff;
+  color: #1f2937;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.analytics-consent-actions .analytics-consent-allow {
+  border-color: #1f6b4f;
+  background: #1f6b4f;
+  color: #fff;
+}
+
+.analytics-consent-actions .analytics-consent-close {
+  width: 40px;
+  padding: 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  .analytics-consent {
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    width: auto;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .analytics-consent-actions {
+    flex-wrap: wrap;
+  }
+
+  .analytics-consent-actions button:not(.analytics-consent-close) {
+    flex: 1 1 140px;
+  }
+}
