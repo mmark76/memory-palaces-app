@@ -6,8 +6,10 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <title>Memory Palaces Builder</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/analytics-notice.css">
 
 <script src="/js/analytics.js" defer></script>
+<script src="/js/analytics-notice.js" defer></script>
 
 </head>
 
@@ -188,7 +190,20 @@
   <footer>
     <h4>© 2025 Markellos Markides. All rights reserved.</h4>
     <p>Cookie-less analytics records only aggregate visit counts by UTC hour, domain and country, solely to help the administrator understand overall traffic. No analytics cookies, visitor identifiers, page paths, referrers, device details or events are used.</p>
+    <button id="analyticsInfoButton" class="analytics-info-button" type="button">Analytics information</button>
   </footer>
+
+  <div id="analyticsNotice" class="analytics-notice-backdrop" hidden>
+    <section class="analytics-notice" role="dialog" aria-modal="true" aria-labelledby="analyticsNoticeTitle" aria-describedby="analyticsNoticeDescription" tabindex="-1">
+      <div class="analytics-notice-head">
+        <h2 id="analyticsNoticeTitle">Cookie-less analytics information</h2>
+        <button id="analyticsNoticeClose" class="analytics-notice-close" type="button" aria-label="Close analytics information">×</button>
+      </div>
+      <p id="analyticsNoticeDescription">This application uses only aggregate traffic measurements without cookies.</p>
+      <p>Measurements are limited to UTC hour, domain, country and total page-view count, solely to help the administrator understand overall traffic. They are not used for any other purpose.</p>
+      <button id="analyticsNoticeDone" type="button">Close</button>
+    </section>
+  </div>
 </body>
 </html>
 
