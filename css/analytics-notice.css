@@ -28,6 +28,10 @@
   background: rgba(0, 0, 0, 0.45);
 }
 
+.analytics-notice-backdrop[hidden] {
+  display: none;
+}
+
 .analytics-notice {
   width: min(100%, 560px);
   padding: 24px;
